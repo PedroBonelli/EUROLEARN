@@ -1,0 +1,30 @@
+body{
+    background-color: #ebedfd;
+}
+
+.login-card-container{
+    padding-top: 5vh;
+    height: 65vh;
+}
+
+.card-login{
+    border-radius: 30px;
+    width: 50%;
+}
+
+.btn-login{
+    font-size: 24px;
+    padding: 8px 30px;
+    color: #fff;
+    background-color: #3b4dd6;
+    border-radius: 30px;
+    text-align: center;
+    font-family: "Baloo 2", sans-serif;
+    font-optical-sizing: auto;
+    transition: 0.5s;
+}
+
+.btn-login:hover{
+    background-color: #3b4dd6;
+    color: #fff;
+}

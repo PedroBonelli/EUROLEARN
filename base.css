@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+.title-font{
+    font-size: 32px;
+    font-family: "Baloo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+}
+
+.subtitle-font{
+    font-size: 24px;
+    font-family: "Baloo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+}
+
