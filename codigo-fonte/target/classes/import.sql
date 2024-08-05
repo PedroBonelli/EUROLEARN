@@ -1,0 +1,1 @@
+INSERT INTO TIPOSTREINAMENTO(nome, descricao, topico) VALUES('Treinamento 1', 'Descricao1', 'Topico1');
