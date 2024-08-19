@@ -21,8 +21,36 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tipos de Treinamento</a>
           <ul class="dropdown-menu">
+          
             <li><a class="dropdown-item" href="/tipostreinamento/form">Cadastrar Tipo de Treinamento</a></li>
             <li><a class="dropdown-item" href="/tipostreinamento">Listar Tipos de treinamento</a></li>
+            
+          </ul>
+        </li>
+        
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Usuarios</a>
+          <ul class="dropdown-menu">
+          
+          <li>
+          
+          <form method="get" th:action="@{/usuarios/form}">
+          	 <input type="submit" value="Cadastrar Usuario"></a>
+          </form>
+           </li>
+           
+            <li><a class="dropdown-item" href="/usuarios">Listar Usuarios</a></li>
+            
+          </ul>
+        </li>
+        
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Feedbacks</a>
+          <ul class="dropdown-menu">
+          
+            <li><a class="dropdown-item" href="/feedbacks">Listar Feedbacks</a></li>
+            <li><a class="dropdown-item" href="/feedbacks/graficos">Acessar Dashboard</a></li>
+            
           </ul>
         </li>
 
