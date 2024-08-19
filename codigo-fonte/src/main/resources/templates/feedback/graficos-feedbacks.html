@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Gráficos Feedbacks</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"
+    integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+	<h1>Funcionou :)</h1>
+
+    <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
+
+    <script>
+
+        // (async function () {
+        //         const data = [
+        //             { year: 2010, count: 10 },
+        //             { year: 2011, count: 20 },
+        //             { year: 2012, count: 15 },
+        //             { year: 2013, count: 25 },
+        //             { year: 2014, count: 22 },
+        //             { year: 2015, count: 30 },
+        //             { year: 2016, count: 28 },
+        //         ];
+
+        //         new Chart(
+        //             document.getElementById('acquisitions'),
+        //             {
+        //                 type: 'bar',
+        //                 data: {
+        //                     labels: data.map(row => row.year),
+        //                     datasets: [
+        //                         {
+        //                             label: 'Acquisitions by year',
+        //                             data: data.map(row => row.count)
+        //                         }
+        //                     ]
+        //                 }
+        //             }
+        //         );
+        //     })();
+
+            async function getData(){
+            	 const request = new Request('http://localhost:8080/restfeedbacks');
+            	 const response = await fetch(request);
+            	 return await response.json();
+            }
+
+            async function showData(){
+                const data = await getData();
+                console.log(data[0]);
+            }
+
+            showData();
+
+    </script>
+
+</body>
+</html>

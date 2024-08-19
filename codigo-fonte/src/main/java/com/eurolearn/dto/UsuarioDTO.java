@@ -2,10 +2,7 @@ package com.eurolearn.dto;
 
 import java.sql.Date;
 
-import com.eurolearn.models.TipoTreinamentoModel;
-import com.eurolearn.models.UsuarioAutenticacaoModel;
 import com.eurolearn.models.UsuarioModel;
-import com.eurolearn.models.UsuarioProfissionalModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,8 +23,14 @@ public class UsuarioDTO {
 	private String email; 
 	private Date dataNasc;
 	
-	private UsuarioProfissionalModel usuarioProfissional;
-	private UsuarioAutenticacaoModel usuarioAutenticacao;
+	private String senha;
+	private Date dataUltimaSenha;
+	private String nivelAcesso; 
+	
+	private String cargo;
+	private String setor;
+	private Date dataAdmissao;
+	
 	
 	//faltam as outras entidades associadas
 	
@@ -40,11 +43,12 @@ public class UsuarioDTO {
 		this.email = entity.getEmail();
 		this.dataNasc = entity.getDataNasc();
 		
-		this.usuarioProfissional = entity.getUsuarioProfissional();
-		this.usuarioAutenticacao = entity.getUsuarioAutenticacao();
+		this.senha = entity.getSenha();
+		this.dataUltimaSenha = entity.getDataUltimaSenha();
+		this.nivelAcesso = entity.getNivelAcesso();
 		
-//		for(TreinamentoAgendadoModel treinamentoAgendado : entity.getTreinamentosAgendados()) {
-//			this.treinamentosAgendados.add(treinamentoAgendado);
-//		}
+		this.cargo = entity.getCargo();
+		this.setor = entity.getSetor();
+		this.dataAdmissao = entity.getDataAdmissao();
 	}
 }

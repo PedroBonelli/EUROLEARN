@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.eurolearn.dto.TipoTreinamentoDTO;
 import com.eurolearn.dto.UsuarioDTO;
-import com.eurolearn.models.TipoTreinamentoModel;
 import com.eurolearn.models.UsuarioModel;
 import com.eurolearn.repository.UsuarioRepository;
 
@@ -36,7 +34,7 @@ public class UsuarioService {
 	}
 	
 	 @Transactional(readOnly = true)
-	    public UsuarioDTO findById(int id) {
+	    public UsuarioDTO findById(long id) {
 
 	    	UsuarioModel usuario = repository.findById(id).orElseThrow(
 	                () -> new IllegalArgumentException("Recurso inválido - " + id)
@@ -46,7 +44,7 @@ public class UsuarioService {
 	 
 	 
 	 @Transactional
-		public UsuarioDTO update(int id, UsuarioDTO dto) {
+		public UsuarioDTO update(long id, UsuarioDTO dto) {
 			try {
 				UsuarioModel usuario = repository.getReferenceById(id);
 				copyDtoToEntity(dto, usuario);
@@ -58,7 +56,7 @@ public class UsuarioService {
 		}
 	 
 	 @Transactional
-		public void delete(int id) {
+		public void delete(long id) {
 			if(!repository.existsById(id)) {
 				throw new IllegalArgumentException("Tipo de treinamento inválido - id: "+id);
 			}
@@ -78,11 +76,13 @@ public class UsuarioService {
 		entity.setGenero(dto.getGenero());
 		entity.setEmail(dto.getEmail());
 		entity.setDataNasc(dto.getDataNasc());
-		
-		entity.setUsuarioAutenticacao(dto.getUsuarioAutenticacao());
-		entity.setUsuarioProfissional(dto.getUsuarioProfissional());
-		
-		
+	
+		entity.setSenha(dto.getSenha());
+		entity.setDataUltimaSenha(dto.getDataUltimaSenha());
+		entity.setNivelAcesso(dto.getNivelAcesso());
+		entity.setCargo(dto.getCargo());
+		entity.setSetor(dto.getSetor());
+		entity.setDataAdmissao(dto.getDataAdmissao());
 		//falta adicionar o código que pega a lista de elementos associados na dto e passa pra entity.
 	}
 	
