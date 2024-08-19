@@ -24,7 +24,8 @@ body{
 }
 
 .main-nav-item a{
-    font-size: 18px;
+    /* mudar o tamanho da fonte para ser responsivo */
+    font-size: 16px;
     font-weight: normal;
     transition: 0.075s;
     color: var(--primary-color);
@@ -73,8 +74,11 @@ body{
 
 /* content container */
 .content-container{
-    margin-left: 10%;
-    margin-right: 10%;
-    /* background-color: var(--content-container-bg); */
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 30px 50px;
+    background-color: var(--white);
     margin-top: 20px;
+    height: 100vh;
+    border-radius: 30px;
 }
