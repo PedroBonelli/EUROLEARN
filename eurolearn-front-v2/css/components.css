@@ -1,0 +1,80 @@
+/* body */
+body{
+    background-color: var(--content-container-bg);
+}
+
+/* main nav */
+.main-nav{
+    background-color: var(--main-nav-bg-color);
+    height: 80px;
+}
+
+.main-nav-offcanvas{
+    background-color: var(--main-nav-bg-color);
+}
+
+.main-nav-logo{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.main-nav-item{
+    padding-left: 10px;
+}
+
+.main-nav-item a{
+    font-size: 18px;
+    font-weight: normal;
+    transition: 0.075s;
+    color: var(--primary-color);
+}
+
+
+.main-nav-item a:hover{
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.main-nav-user{
+    padding-left: 10px !important;
+}
+
+.main-nav-user-name:hover{
+    font-weight: bold;
+}
+
+.main-nav-user-icon{
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 32px;
+    padding-top: 10px;
+}
+
+.main-nav-user-name{
+    font-size: 18px;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: 0.075s;
+}
+
+.main-nav-user-desc{
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: var(--tertiary-color);
+    text-transform: uppercase;
+}
+
+.main-nav-items-padding{
+    padding-top: 14px !important;
+}
+
+/* content container */
+.content-container{
+    margin-left: 10%;
+    margin-right: 10%;
+    /* background-color: var(--content-container-bg); */
+    margin-top: 20px;
+}
