@@ -40,8 +40,9 @@ public class TreinamentoAgendadoModel {
 	@OneToMany(mappedBy="treinamentoAgendado")
 	private List<ConfirmacaoPresencaModel> confirmacoes;
 	
-	@OneToMany(mappedBy="treinamentoAgendado")
-	private List<FeedbackModel> feedbacks;
+	//descomentar quando implementar os treinamentos agendados
+//	@OneToMany(mappedBy="treinamentoAgendado")
+//	private List<FeedbackModel> feedbacks;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "MEMBROSTREINAMENTO",

@@ -36,8 +36,8 @@ public class UsuarioModel {
 	@OneToMany(mappedBy="usuario")
 	private List<ConfirmacaoPresencaModel> confirmacoes;
 	
-	@OneToMany(mappedBy="usuario")
-	private List<FeedbackModel> feedbacks;
+//	@OneToMany(mappedBy="usuario")
+//	private List<FeedbackModel> feedbacks;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "MEMBROSGRUPOS",
@@ -51,11 +51,13 @@ public class UsuarioModel {
 			   inverseJoinColumns = @JoinColumn(name = "idTreinamentoAgendado"))
 	private List<TreinamentoAgendadoModel> treinamentosAgendados;
 	
-	@OneToOne(mappedBy = "usuario")
-	private UsuarioProfissionalModel usuarioProfissional;
-	
-	@OneToOne(mappedBy = "usuario")
-	private UsuarioAutenticacaoModel usuarioAutenticacao;
+//	@OneToOne()
+//	@JoinColumn(name = "idProfissional", nullable = true)
+//	private UsuarioProfissionalModel usuarioProfissional;
+//	
+//	@OneToOne()
+//	@JoinColumn(name = "idAutenticacao", nullable = true)
+//	private UsuarioAutenticacaoModel usuarioAutenticacao;
 	
 	
 	//atributos da entidade
@@ -68,5 +70,15 @@ public class UsuarioModel {
 	private String genero;
 	private String email;
 	private Date dataNasc;
+	
+	//informações dos outros models (previously Profissional e Aut)
+	private String senha;
+	private Date dataUltimaSenha;
+	private String nivelAcesso;
+	
+	private String cargo;
+	private String setor;
+	private Date dataAdmissao;
+	
 	
 }
