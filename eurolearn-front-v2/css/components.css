@@ -79,6 +79,7 @@ body{
 .content-container{
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 5%;
     padding: 30px 50px;
     background-color: var(--white);
     margin-top: 20px;
