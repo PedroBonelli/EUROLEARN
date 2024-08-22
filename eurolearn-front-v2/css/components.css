@@ -1,6 +1,5 @@
 /* body */
 body{
-    height: 100vh;
     /* background-color: var(--content-container-bg); */
     background: linear-gradient(var(--body-gradient-angle), var(--body-gradient-color-1) 0%, var(--body-gradient-color-2) 100%);
     background-repeat: no-repeat;
@@ -157,4 +156,9 @@ body{
     background-color: var(--tertiary-color);
     color: var(--white);
  }
+
+ /* graficos */
+.graph-container{
+    margin: 5% 2%;
+}
 
