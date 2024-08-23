@@ -1,12 +1,11 @@
-async function getFeedbackData(filterType){
+async function getFeedbackData(filter){
     let url = '';
 
-    switch (filterType) {
-        case 'month':
-            url = "http://localhost:8080/restfeedbacks/groupbylast12months";
-            break;
-    
+    switch (filter) {
+        case '6':
+            url = "http://localhost:8080/restfeedbacks/groupbylast6months"
         default:
+            url = "http://localhost:8080/restfeedbacks/groupbylast12months";
             break;
     } 
 
@@ -29,7 +28,7 @@ export default function buildBarGraph(data, htmlCanvasId){
 
     let canvas = document.getElementById(htmlCanvasId);
 
-    new Chart(canvas, {
+    return new Chart (canvas, {
         type: 'line',
         data: {
             labels: data[0],

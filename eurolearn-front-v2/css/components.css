@@ -147,16 +147,6 @@ body{
     border: none;
 }
 
- #enviar{
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
- #cancelar{
-    background-color: var(--tertiary-color);
-    color: var(--white);
- }
-
  /* graficos */
 .graph-container{
     margin: 5% 2%;
