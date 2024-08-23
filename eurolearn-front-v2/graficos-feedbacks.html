@@ -96,9 +96,18 @@
         <h1 class="">Dashboard - Feedbacks</h1>
 
         <div class="graph-container">
-            <h2>Índice de satisfação médio</h2>
-            <div><canvas id="grafico1"></canvas></div>
-        
+            <h2>Índice de satisfação médio nos últimos <span id="filterNumber"></span> meses </h2>
+
+            <h3>Média de satisfação nesse período: <span id="meanValue"></span> </h3>
+
+            <div><canvas id="barChartPerMonth"></canvas></div>
+
+                <select name="monthsFilter" id="monthsFilter" class="form-select my-0">
+                    <option value="6">6 meses </option>
+                    <option value="12">12 meses</option>
+                </select>
+
+                <a type="submit" id="generate-mean-graph" class=" btn form-button box-shadow-1 background-primary font-white"> Gerar visualização</a>
         </div>
         
 
@@ -109,7 +118,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.3/math.js"
+    integrity="sha512-lAVGwhTndbBUjJlN0Lq4BNuOP0lpuGA9OUCA9bxRZrsehpmkiv8BcYdp91ON3XqJHWmVURGTw1d1W3LCr1k/1g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 <script type="module" src="/js/graficos-feedbacks.js"></script>
 <script type="module" src="/js/main-graficos-feedbacks.js"></script>
 
