@@ -22,7 +22,7 @@ function cleanData(data){
     data[0] = cleanDates;
 }
 
-export default function buildBarGraph(data, htmlCanvasId){  
+export default function buildBarGraph(data, htmlCanvasId, backgroundColor, borderColor){  
 
     cleanData(data);
 
@@ -35,13 +35,16 @@ export default function buildBarGraph(data, htmlCanvasId){
             datasets: [{
                 label: 'Índice de satisfação médio',
                 data: data[1],
-                borderWidth: 2
+                borderWidth: 2,
+                backgroundColor: backgroundColor,
+                borderColor: borderColor,
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    max: 5,
                 }
             }
         }

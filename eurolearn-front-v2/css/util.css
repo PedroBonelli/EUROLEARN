@@ -42,10 +42,22 @@
     color: var(--primary-color) !important;
 }
 
+.font-bold{
+    font-weight: bold;
+}
+
+.font-light{
+    font-weight: lighter;
+}
+
 .height-0px{
     height: 0px !important;
 }
 
 .height-50pct{
     height: 50% !important;
+}
+
+.display-none{
+    display: none !important;
 }

@@ -1,6 +1,6 @@
 import buildBarGraph from './graficos-feedbacks.js'
 
-function generateGraph(data, htmlCanvasId, graphType){
+function generateGraph(data, htmlCanvasId, graphType, backgroundColor, borderColor){
 
     if (Chart.getChart(htmlCanvasId) != undefined){
         Chart.getChart(htmlCanvasId).destroy();
@@ -8,18 +8,33 @@ function generateGraph(data, htmlCanvasId, graphType){
 
     switch (graphType) {
         case 'bar':
-           return buildBarGraph(data, htmlCanvasId);
+           return buildBarGraph(data, htmlCanvasId, backgroundColor, borderColor);
         default:
             break;
     }
 }
 
 function generateMeanValue(data){
-    return math.mean(data[1].filter((value) => value !== 0));
+    return math.mean(data[1].filter((value) => value !== 0)).toFixed(2);
 }
+
+function hideElement(elementId){
+    document.getElementById(elementId).classList.add('display-none');
+}
+
+function showElement(elementId){
+    document.getElementById(elementId).classList.remove('display-none');
+}
+
+
+
 
 // inserir aqui a lógica async (pronto => exibir gráfico, esperando => loading, erro => erro na tela)
 const buttonGenerateGraph = document.getElementById('generate-mean-graph');
+hideElement('barChartPerMonth');
+hideElement('barChartInfo');
+hideElement('filterInfo');
+
 
 buttonGenerateGraph.addEventListener('click', async () => {
     let filter = document.getElementById('monthsFilter').value;
@@ -59,8 +74,12 @@ buttonGenerateGraph.addEventListener('click', async () => {
         ];
     }
 
+    showElement('barChartPerMonth');
+    showElement('barChartInfo');
+    showElement('filterInfo');
+
     document.getElementById('meanValue').innerText = generateMeanValue(data);
-    const graph = await generateGraph(data, 'barChartPerMonth', 'bar');
+    const graph = generateGraph(data, 'barChartPerMonth', 'bar', '#3B4DD6', '#3B4DD6');
 
     const filterHeader = document.getElementById('filterNumber');
     filterHeader.innerText = filter;

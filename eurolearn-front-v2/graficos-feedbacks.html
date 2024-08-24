@@ -96,18 +96,25 @@
         <h1 class="">Dashboard - Feedbacks</h1>
 
         <div class="graph-container">
-            <h2>Índice de satisfação médio nos últimos <span id="filterNumber"></span> meses </h2>
+            <h2 class="graph-title">Índice de satisfação médio</h2>
 
-            <h3>Média de satisfação nesse período: <span id="meanValue"></span> </h3>
+            <h3 class="graph-info font-light" id="filterInfo">Levando em conta os últimos <span id="filterNumber"></span> meses</h3>
 
-            <div><canvas id="barChartPerMonth"></canvas></div>
+            <h3 class="graph-info font-light" id="barChartInfo">Média de satisfação nesse período: <span id="meanValue" class="font-bold font-primary"></span>/5 </h3>
 
-                <select name="monthsFilter" id="monthsFilter" class="form-select my-0">
-                    <option value="6">6 meses </option>
-                    <option value="12">12 meses</option>
+            <div class="graph-canvas">
+                <canvas id="barChartPerMonth"></canvas>
+            </div>
+
+            <div class="graph-filter">
+                <label for="monthsFilter" class="filter-label">Selecione o período filtrado</label>
+                <select name="monthsFilter" id="monthsFilter" class="form-select filter-select">
+                    <option value="6" class="filter-option">6 meses </option>
+                    <option value="12" class="filter-option">12 meses</option>
                 </select>
+            </div>
 
-                <a type="submit" id="generate-mean-graph" class=" btn form-button box-shadow-1 background-primary font-white"> Gerar visualização</a>
+                <a type="submit" id="generate-mean-graph" class=" btn form-button box-shadow-1 background-primary font-white">Visualizar</a>
         </div>
         
 
