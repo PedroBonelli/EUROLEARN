@@ -1,7 +1,8 @@
 /* body */
 body{
     /* background-color: var(--content-container-bg); */
-    background: linear-gradient(var(--body-gradient-angle), var(--body-gradient-color-1) 0%, var(--body-gradient-color-2) 100%);
+    /* background: linear-gradient(var(--body-gradient-angle), var(--body-gradient-color-1) 0%, var(--body-gradient-color-2) 100%); */
+    background-color: var(--white);
     background-repeat: no-repeat;
 }
 
@@ -152,3 +153,20 @@ body{
     margin: 5% 2%;
 }
 
+.graph-title{
+    margin: 2% 0;
+}
+
+.graph-filter{
+    margin-top: 5%;
+}
+
+.filter-label{
+    font-size: 1.5em;
+}
+
+.filter-select{
+    margin-bottom: 2%;
+    width: 25vw;
+    font-size: 1em;
+}
