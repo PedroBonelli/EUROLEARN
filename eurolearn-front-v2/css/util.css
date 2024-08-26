@@ -6,7 +6,9 @@
     --body-gradient-color-2: #6e77c7;
     --body-gradient-angle: 135deg;
     --tertiary-color: #5D6071;
-    --primary-color: #3B4DD6;
+    --primary-color: #00488E;
+    --secondary-color: #FFF200;
+    --warning-color: #c20000;
     --black: #000000;
     --main-nav-item-color: #5a5a5a;
 
@@ -19,6 +21,10 @@
     --xxl: 1400px; 
 
     /* font-sizes */
+
+
+    /* box-shadow */
+    --box-shadow-1: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     
 }
 

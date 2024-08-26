@@ -53,4 +53,8 @@
         width: 100% !important;
         margin: 10% 0;
     }
+
+    .card {
+        margin: 15% 0;
+    }
 }
