@@ -5,6 +5,8 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -40,9 +42,8 @@ public class TreinamentoAgendadoModel {
 	@OneToMany(mappedBy="treinamentoAgendado")
 	private List<ConfirmacaoPresencaModel> confirmacoes;
 	
-	//descomentar quando implementar os treinamentos agendados
-//	@OneToMany(mappedBy="treinamentoAgendado")
-//	private List<FeedbackModel> feedbacks;
+	@OneToMany(mappedBy="treinamentoAgendado")
+	private List<FeedbackModel> feedbacks;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "MEMBROSTREINAMENTO",
@@ -58,6 +59,7 @@ public class TreinamentoAgendadoModel {
 	private List<GrupoUsuariosModel> grupos;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTreinamentoAgendado;
 	private String nome;
 	private Date data;
