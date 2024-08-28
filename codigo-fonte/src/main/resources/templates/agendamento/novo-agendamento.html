@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Agendar Treinamento</title>
+</head>
+
+<body>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Agendar Treinamento</h2>
+                <div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+                    <button class="btn-close" data-bs-dismiss="alert" type="button"></button>
+
+                    <span th:text="${mensagem}"></span>
+                </div>
+
+                <form action="#" method="post" th:action="@{/agendamento}" th:object="${treinamentoAgendadoDTO}">
+
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="tipoTreinamento">Tipo de Treinamento:</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="tipoTreinamento" th:field="*{tipoTreinamento}" data-placehold="Tipo de Agendamento">
+                            	<option th:each="tipo : ${tiposTreinamento}" th:text="${tipo.nome}" th:value="${tipo.idTipoTreinamento}"></option> 
+                            </select>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{tipoTreinamento}" th:if="${#fields.hasErrors('tipoTreinamento')}"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="data">Data:</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" id="data" th:field="*{data}" type="date">
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{data}"
+                                  th:if="${#fields.hasErrors('data')}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="topico">Local:</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" id="local" th:field="*{local}" type="text">
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{local}"
+                                  th:if="${#fields.hasErrors('local')}"></span>
+                        </div>
+                    </div>
+<!--                     adicionando e populando ComboBox Categoria -->
+<!--                     <div class="form-row"> -->
+<!--                         <div class="row mb-3"> -->
+<!--                             <label class="col-sm-1 col-form-label">Categoria:</label> -->
+<!--                             <div class="col-sm-3"> -->
+<!--                                 <select class="chosen-select form-control" data-placehold="categoria" id="categoria" -->
+<!--                                         name="categoria" th:field="*{categoria}"> -->
+<!--                                     <option th:each="categoria : ${categorias}" -->
+<!--                                             th:text="${categoria.nome}" -->
+<!--                                             th:value="${categoria.id}"> -->
+<!--                                     </option> -->
+<!--                                 </select> -->
+<!--                             </div> -->
+<!--                             <div class="col-sm-5"> -->
+<!-- 								<span class="mensagem" th:errors="*{categoria}" -->
+<!--                                       th:if="${#fields.hasErrors('categoria')}"></span> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+
+<!--                     adicionando e populando ComboBox Loja -->
+<!--                     <div class="form-row"> -->
+<!--                         <div class="row mb-3"> -->
+<!--                             <label class="col-sm-1 col-form-label">Lojas:</label> -->
+<!--                             <div class="col-sm-3"> -->
+<!--                                 <select class="chosen-select form-control" data-placehold="lojas" id="lojas" multiple="true" -->
+<!--                                         name="lojas" th:field="${produtoDTO.lojas}"> -->
+<!--                                     <option th:each="loja :${lojas}" -->
+<!--                                             th:text="${loja.nome}" -->
+<!--                                             th:value="${loja.id}"/> -->
+<!--                                 </select> -->
+<!--                             </div> -->
+<!--                             <div class="col-sm-5"> -->
+<!-- 								<span class="mensagem" th:errors="*{lojas}" -->
+<!--                                       th:if="${#fields.hasErrors('lojas')}"></span> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+
+         
+
+                    <input class="btn btn-primary" type="submit" value="Salvar"/>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

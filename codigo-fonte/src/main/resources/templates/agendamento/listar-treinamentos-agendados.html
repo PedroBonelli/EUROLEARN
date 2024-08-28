@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Lista de Tipos de treinamento</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Treinamentos Agendados</h1>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Data</th>
+     				      <th>Local</th>	
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${treinamentosAgendados.empty}">
+                        <td colspan="5">Lista de treinamentos vazia</td>
+                    </tr>
+                    <tr th:each="t : ${treinamentosAgendados}" >
+                        <td><span th:text="${t.tipoTreinamento.nome}">Tipo</span></td>
+                        <td><span th:text="${t.data}">Data</span></td>
+                        <td><span th:text="${t.local}">Local</span></td>
+                        
+                        <td>
+                        
+                        <!-- {id}(id=${tipo.id}) tem que ser assim pq o thymeleaf não consegue acessar o tipo.id diretamente -->
+                        <form th:action="@{/agendamento/{id}(id=${t.id})}" th:object="${t}" method="get">
+                        
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Editar">
+                        
+                        </form>
+                        
+                        </td>
+                        
+                        <td>
+                        
+                        
+                        <form th:action="@{/agendamento/{id}(id=${t.id})}" th:object="${t}" method="post">
+                        	
+                        	<input type="hidden" name="_method" value="delete">
+                       
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Excluir">
+                        
+                        </form>
+                        
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
