@@ -227,3 +227,30 @@ body{
 .treinamento-info{
     margin: 2% 0;
 }
+
+/* filter (grupo insert) */
+.filter-container{
+    margin-top: 2em;
+}
+
+.filter {
+    margin: 1em 0;
+}
+
+.filter-input{
+    margin-bottom: 1em; 
+}
+
+.filter-btn-submit{
+    width: 16em;
+    border-radius: 40px;
+    border: 1px solid var(--primary-color);
+    transition: 0.5s;
+}
+
+.filter-btn-submit:hover{
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    box-shadow: var(--box-shadow-1);
+}
+
