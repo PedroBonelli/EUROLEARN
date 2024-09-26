@@ -3,6 +3,9 @@ package com.eurolearn.models;
 import java.sql.Date;
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -46,6 +49,7 @@ public class UsuarioModel {
 	private List<GrupoUsuariosModel> grupos;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
+	@Cascade(CascadeType.ALL)
 	@JoinTable(name = "MEMBROSTREINAMENTOS",
 			   joinColumns = @JoinColumn(name = "cpf"),
 			   inverseJoinColumns = @JoinColumn(name = "idTreinamentoAgendado"))

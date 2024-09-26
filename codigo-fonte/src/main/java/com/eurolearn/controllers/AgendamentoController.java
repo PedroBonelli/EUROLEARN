@@ -55,6 +55,7 @@ public class AgendamentoController {
 		
 	}
 	
+	
 	@GetMapping("/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		

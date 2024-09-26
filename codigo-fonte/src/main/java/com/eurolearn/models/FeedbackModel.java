@@ -13,27 +13,27 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="FEEDBACKS")
+@Table(name = "FEEDBACKS")
 @Getter
 @Setter
 public class FeedbackModel {
-	
-	//atributos de relacionamento
-	
-	//descomentar quando tiver o treinamento agendado feito
-//	@ManyToOne
-//	@JoinColumn(name="idTreinamentoAgendado", nullable = true)
-//	private TreinamentoAgendadoModel treinamentoAgendado;
-	
+
+	// atributos de relacionamento
+
+	// descomentar quando tiver o treinamento agendado feito
 	@ManyToOne
-	@JoinColumn(name="cpf", nullable = true)
+	@JoinColumn(name = "idTreinamentoAgendado", nullable = true)
+	private TreinamentoAgendadoModel treinamentoAgendado;
+
+	@ManyToOne
+	@JoinColumn(name = "cpf", nullable = true)
 	private UsuarioModel usuario;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFeedback;
-	
+
 	private double indiceSatisfacao;
 	private Date dataFeedback;
-	
+
 }

@@ -3,6 +3,9 @@ package com.eurolearn.models;
 import java.sql.Date;
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -46,6 +49,7 @@ public class TreinamentoAgendadoModel {
 	private List<FeedbackModel> feedbacks;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
+	@Cascade(CascadeType.ALL)
 	@JoinTable(name = "MEMBROSTREINAMENTO",
 			   joinColumns = @JoinColumn(name = "idTreinamentoAgendado"),
 			   inverseJoinColumns = @JoinColumn(name = "cpf"))
@@ -61,7 +65,6 @@ public class TreinamentoAgendadoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTreinamentoAgendado;
-	private String nome;
 	private Date data;
 	private String local;
 	

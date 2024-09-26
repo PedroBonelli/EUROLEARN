@@ -38,13 +38,11 @@ public class TreinamentoAgendadoDTO {
 	private List<GrupoUsuariosModel> grupos;
 	
 	private int id;
-	private String nome;
 	private Date data;
 	private String local;
 	
 	public TreinamentoAgendadoDTO(TreinamentoAgendadoModel entity) {
 		this.id = entity.getIdTreinamentoAgendado();
-		this.nome = entity.getNome();
 		this.data = entity.getData();
 		this.local = entity.getLocal();
 		this.alertas = entity.getAlertas();

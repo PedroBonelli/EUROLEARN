@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eurolearn.dto.TreinamentoAgendadoDTO;
+import com.eurolearn.dto.UsuarioTreinamentoDTO;
 import com.eurolearn.models.AlertaModel;
-import com.eurolearn.models.ConfirmacaoPresencaModel;
 import com.eurolearn.models.FeedbackModel;
 import com.eurolearn.models.GrupoUsuariosModel;
 import com.eurolearn.models.JustificativaNaoConfirmacaoModel;
 import com.eurolearn.models.TipoTreinamentoModel;
 import com.eurolearn.models.TreinamentoAgendadoModel;
+import com.eurolearn.models.UsuarioModel;
 import com.eurolearn.repository.AlertaRepository;
 import com.eurolearn.repository.ConfirmacaoPresencaRepository;
 import com.eurolearn.repository.FeedbackRepository;
@@ -80,6 +81,44 @@ public class TreinamentoAgendadoService {
 		}
 
 	}
+	
+	@Transactional
+	public UsuarioTreinamentoDTO addUsuario(UsuarioTreinamentoDTO dto) {
+		try {
+			TreinamentoAgendadoModel entity = repository.getReferenceById(dto.getTreinamentoId());
+			UsuarioModel userEntity = usuarioRepository.getReferenceById(dto.getCpf());
+			entity.getUsuarios().add(userEntity);
+			repository.save(entity);
+			return dto;
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new IllegalArgumentException("Recurso não encontrado");
+		}
+	}
+	@Transactional
+	public int addUsuarioMultiple(List<Long> lista, int idTreinamento) {
+		try {
+			
+			TreinamentoAgendadoModel entity = repository.getReferenceById(idTreinamento);
+			for(Long cpf : lista) {
+				UsuarioModel userEntity = usuarioRepository.getReferenceById(cpf);
+				entity.getUsuarios().add(userEntity);
+			}
+			repository.save(entity);
+			return idTreinamento;
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new IllegalArgumentException("Recurso não encontrado");
+		}
+	}
+	
+	@Transactional
+	public void deleteUsuario(long cpf, int treinamentoId) {
+		TreinamentoAgendadoModel entity = repository.getReferenceById(treinamentoId);
+		UsuarioModel userEntity = usuarioRepository.getReferenceById(cpf);
+		entity.getUsuarios().remove(userEntity);
+		repository.save(entity);
+	}
 
 	@Transactional
 	public void delete(int id) {
@@ -96,7 +135,6 @@ public class TreinamentoAgendadoService {
 	}
 
 	private void copyDtoToEntity(TreinamentoAgendadoDTO dto, TreinamentoAgendadoModel entity) {
-		entity.setNome(dto.getNome());
 		entity.setData(dto.getData());
 		entity.setLocal(dto.getLocal());
 
@@ -118,13 +156,13 @@ public class TreinamentoAgendadoService {
 				entity.getJustificativas().add(item);
 			}
 		}
-		if (entity.getConfirmacoes() != null) {
-			entity.getConfirmacoes().clear();
-			for (ConfirmacaoPresencaModel item : dto.getConfirmacoes()) {
-				item = confirmacaoRepository.getReferenceById(item.getIdConfirmacao());
-				entity.getConfirmacoes().add(item);
-			}
-		}
+//		if (entity.getConfirmacoes() != null) {
+//			entity.getConfirmacoes().clear();
+//			for (ConfirmacaoPresencaModel item : dto.getConfirmacoes()) {
+//				item = confirmacaoRepository.getReferenceById(item.getIdConfirmacao());
+//				entity.getConfirmacoes().add(item);
+//			}
+//		}
 		if (entity.getFeedbacks() != null) {
 			entity.getFeedbacks().clear();
 			for (FeedbackModel item : dto.getFeedbacks()) {
